@@ -1,2 +1,10 @@
+*.py[cod]
+
 # Virtual environment
 env/
+
+# VSCode
+.vscode/
+
+# Packages
+__pycache__/
