@@ -8,3 +8,7 @@ env/
 
 # Packages
 __pycache__/
+
+# DataBase
+app.db
+migrations
