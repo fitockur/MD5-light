@@ -1,5 +1,9 @@
 # MD5_light
-Web service for calculating MD5-hash of file through its url. 
+App for calculating MD5-hash of file through its url. It can send the results on your email address.
+
+*POST request for **/submit** with url and email address (optional);*
+
+*GET request for **/check** with id parameter*
 
 ## Installation
 

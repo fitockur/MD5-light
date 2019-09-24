@@ -77,4 +77,5 @@ def check():
     elif task.status == 'running':
         return jsonify({'status': task.status}), 202
     else:
+        """code or description"""
         return jsonify({'status': task.status}), 400
