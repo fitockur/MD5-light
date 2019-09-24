@@ -12,7 +12,7 @@ App for calculating MD5-hash of file through its url. It can send the results on
 $ git clone https://github.com/fitockur/MD5-light.git
 $ cd MD5-light
 $ python -m venv env
-. env/bin/activate
+$ source env/bin/activate
 $ pip install -r requirements.txt
 ```
 
