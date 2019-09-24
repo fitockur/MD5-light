@@ -12,3 +12,6 @@ __pycache__/
 # DataBase
 app.db
 migrations
+
+# Others
+queries.txt
