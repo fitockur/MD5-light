@@ -1,42 +1,9 @@
-# -*- coding: utf-8 -*-
-
-from app import app, db, mail
-from app.models import Task
+from app import app, db
+from .models import Task
+from .main import perform
 from flask import request, jsonify
-from flask_mail import Message
 from uuid import uuid4
 from threading import Thread
-import hashlib
-import requests
-
-def perform(cur_app, task_id, url, email):
-    md5 = None
-    hash = hashlib.md5()
-
-    try:
-        response = requests.get(url, timeout=10) # get file content
-    except requests.RequestException:
-        status = 'error: bad request'
-    else:
-        if response.status_code == 200: # code 200 is OK
-            for chunk in response.iter_content(chunk_size=4096): # if file is large
-                hash.update(chunk)
-            md5 = hash.hexdigest()
-            status = 'done'
-
-            if email: # optional
-                msg = Message('MD5Light', sender=cur_app.config['MAIL_USERNAME'],
-                              recipients=[email])
-                msg.body = f"url: {url}\nmd5: {md5}"
-                with cur_app.app_context():
-                    mail.send(msg)
-        else:
-            status = f'error: status code is {response.status_code}'
-
-    task = Task.query.get(task_id)
-    task.md5 = md5
-    task.status = status
-    db.session.commit()
 
 
 @app.route('/submit', methods=['POST'])

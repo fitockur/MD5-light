@@ -1,9 +1,10 @@
 # MD5_light
-App for calculating MD5-hash of file through its url. It can send the results on your email address.
+App for calculating MD5-hash of file through its url. Results could be sent to your email address.
 
-*POST request for **/submit** with url and email address (optional);*
+API:
+* *POST request for **/submit** with url and email address (optional);*
 
-*GET request for **/check** with id parameter*
+* *GET request for **/check** with id parameter*
 
 ## Installation
 
@@ -21,6 +22,11 @@ $ pip install -r requirements.txt
 $ flask db init
 $ flask db migrate
 $ flask db upgrade
+```
+
+If you want to sync another DBMS, change the url:
+```bash
+$ export SQLALCHEMY_DATABASE_URI=<your-url>
 ```
 
 ### Add information on your mail server:
@@ -52,9 +58,4 @@ $ curl -X POST -d "email=nikitosik981@gmail.com&url=https://students.bmstu.ru/st
 $ curl -X GET http://localhost:5000/check?id=997a75d5-2630-4fc1-a42d-c27b2e79d232
 
 > {"md5":"1dc831b23a0d38434a99975cb2bcc874","status":"done","url":"https://students.bmstu.ru/static/images/eulogo-lite.png"}
-```
-
-If you want to sync another DBMS, change the url:
-```bash
-$ export SQLALCHEMY_DATABASE_URI=<your-url>
 ```
