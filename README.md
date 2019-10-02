@@ -46,6 +46,7 @@ $ export MAIL_USE_TLS=1
 ```
 ### Start your server
 ```bash
+$ export FLASK_APP=md5_light
 $ flask run
 ```
 
